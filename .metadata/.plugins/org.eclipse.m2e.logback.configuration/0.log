@@ -893,3 +893,4 @@ Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.apache
 	at com.google.inject.internal.InjectorImpl$1.get(InjectorImpl.java:1050)
 	... 47 common frames omitted
 2022-06-08 08:58:47,260 [Worker-45: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.simplilearn.ph2:WebProject3b:0.0.1-SNAPSHOT @ C:\Trainings\Simplilearn\JFSDMarApr2022\JavaPhase1_FinalProject\WebProject3b\pom.xml.
+2022-06-08 08:58:57,815 [Worker-28: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.simplilearn.ph2:WebProject4:0.0.1-SNAPSHOT @ C:\Trainings\Simplilearn\JFSDMarApr2022\JavaPhase1_FinalProject\WebProject4\pom.xml.
