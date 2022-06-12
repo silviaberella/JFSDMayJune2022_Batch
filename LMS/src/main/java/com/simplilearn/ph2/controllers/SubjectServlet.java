@@ -1,5 +1,6 @@
 package com.simplilearn.ph2.controllers;
 
+//import required packages
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -31,10 +32,14 @@ public class SubjectServlet extends HttpServlet {
 
 			SubjectService subjectService = new SubjectServiceImpl();
 			boolean isSubjectAdded = subjectService.addSubject(subject);
+			
+			//Go to next screen, the main menu for the administrator
 			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 			dispatcher.forward(request, response);
 
 		}else if (action.equals("Back")) {
+			
+			// if user would like to go one screen back
 			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 			dispatcher.forward(request, response);
 		}

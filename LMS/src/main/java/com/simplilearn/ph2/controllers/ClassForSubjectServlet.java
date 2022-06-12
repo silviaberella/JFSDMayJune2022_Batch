@@ -1,5 +1,6 @@
 package com.simplilearn.ph2.controllers;
 
+//import required packages
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -29,14 +30,20 @@ public class ClassForSubjectServlet extends HttpServlet {
 			String subjectId = request.getParameter("subjectId");
 			String liveClassId = request.getParameter("liveClassId");
 			
+			//generate new entity for live classs with its subject
 			ClassForSubject classForSubject = new ClassForSubject(liveClassId, subjectId);
 			ClassForSubjectService classForSubjectService = new ClassForSubjectServiceImpl();
+			
+			//add live class with its assigned subject
 			boolean isClassForSubjectAdded = classForSubjectService.addClassForSubject(classForSubject);
 			
+			//after adding above information user goes back to main admin menu
 			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 			dispatcher.forward(request, response);
 			
 		}else if (action.equals("Back")) {
+			
+			// if user would like to go one screen back
 			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 			dispatcher.forward(request, response);
 		}

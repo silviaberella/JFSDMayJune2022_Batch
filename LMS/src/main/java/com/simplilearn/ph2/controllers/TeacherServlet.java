@@ -1,19 +1,14 @@
 package com.simplilearn.ph2.controllers;
 
+//import required packages
 import java.io.IOException;
-import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import com.simplilearn.ph2.dto.TrainingClass;
 import com.simplilearn.ph2.dto.Teacher;
-import com.simplilearn.ph2.service.ClassService;
-import com.simplilearn.ph2.service.ClassServiceImpl;
 import com.simplilearn.ph2.service.TeacherService;
 import com.simplilearn.ph2.service.TeacherServiceImpl;
 
@@ -39,10 +34,13 @@ public class TeacherServlet extends HttpServlet {
 			TeacherService teacherService = new TeacherServiceImpl();
 			boolean isTeacherAdded = teacherService.addTeacher(teacher);
 
+			//Go to next screen, the main menu for the administrator
 			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 			dispatcher.forward(request, response);
 			
 		}else if (action.equals("Back")) {
+			
+			// if user would like to go one screen back
 			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 			dispatcher.forward(request, response);
 		}

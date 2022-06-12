@@ -1,21 +1,25 @@
 package com.simplilearn.ph2.dto;
 
 public class ClassForSubject {
+	
+	//Declaration of variable for class
 	private String classId;
 	private String subjectId;
 	
-	
+	// Constructor without parameters
 	public ClassForSubject() {
 	}
 	
-	
+	// Constructor with parameters
 	public ClassForSubject(String classId, String subjectId) {
 		this.classId = classId;
 		this.subjectId = subjectId;
 	}
 
 
-	public String getClassId() {
+	//Getters and Setters of this class
+	
+		public String getClassId() {
 		return classId;
 	}
 

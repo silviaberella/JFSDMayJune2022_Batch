@@ -14,9 +14,11 @@
 	 <br>
 	 <center> The below table shows all the students who are currently already available in the Learning Management System.</center>
  </p>
+  	<!-- Get data from session object -->
   <%
 	Set<Student> allStudents = (Set<Student>)session.getAttribute("allStudents");
 	%>
+	<!-- Display above data in table below with headers -->
 	<center>
 	<table border="1" style="background-color:rgb(104, 227, 225);">
 	<tr>
@@ -40,6 +42,7 @@
 	%>
 	</table>
 	<center> <h3 style="background-color:rgb(210, 68, 119);"> For adding a student please enter the Id, the first name and the last name of this student.</h3> </center>
+		<!-- Definition of form for returning back to menu -->
 		<form action="AdminServlet" method="post">
 		<input type="submit" value="Back" name="training"/>
 	</form>

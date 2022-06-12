@@ -21,6 +21,7 @@
 	<a href="addClass.jsp">Add Class</a>
 	<a href="allClassDetails.jsp">Class Report</a> -->
 
+	<!-- Definition of form for admin menu with the options from which admin can choose options -->
 	<center>
 	<form action="AdminServlet">
 		<br>

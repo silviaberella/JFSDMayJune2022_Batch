@@ -15,9 +15,11 @@
 	 <br>
 	 <center> The first below table shows all the live classes which are currently already available in the Learning Management System.</center>
  </p>
+  	<!-- Get live classes from session object -->
   <%
 	Set<TrainingClass> allTrainingClasses = (Set<TrainingClass>)session.getAttribute("allClassesForTeachers");
 	%>
+	<!-- Display above class data in table below with headers -->
 	<center>
 	<table border="3">
 	<tr>
@@ -42,9 +44,11 @@
 <p>
 <center> The second below table shows all the teachers who are currently already available in the Learning Management System.</center>
 </p>
+ 	<!-- Get teacher from session object -->
   <%
 	Set<Teacher> allTeachers = (Set<Teacher>)session.getAttribute("allTeachersForLiveClasses");
 	%>
+	<!-- Display above teacher information in table below with headers -->
 	<center>
 	<table border="1">
 	<tr>
@@ -69,6 +73,7 @@
 	</table>
 	</br>
 <center> <h3 style="background-color:rgb(210, 68, 119);">Please select the class and the teacher which you would like to assign to each other::</h3> </center>	
+	<!-- Definition of form for adding live class with its teachers -->
 	<form action="TeacherForClassServlet">
 		Live Class Id: <input type="text" name="liveClassId"/>
 		Live Class Name: <input type="text" name="liveClassName"/>

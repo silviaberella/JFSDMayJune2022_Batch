@@ -1,6 +1,8 @@
 package com.simplilearn.ph2.dto;
 
 public class TrainingClass {
+	
+	//Declaration of variable for class
 	private String classId;
 	private String className;
 	private String subjectId;
@@ -15,9 +17,11 @@ public class TrainingClass {
 	private String live_class_id;
 	private String live_class_name;
 	
+	// Constructor without parameters
 	public TrainingClass() {
 	}
 	
+	// Constructor with parameters
 	public TrainingClass(String classId, String className, String subjectId, String subjectName, String teacherId, String teacherFirstName,
 			String teacherLastName, String studentId, String studentFirstName, String studentLastName) {
 
@@ -38,6 +42,9 @@ public class TrainingClass {
 		this.live_class_name = live_class_name;
 	}
 
+	
+	//Getters and Setters of this class
+	
 	public String getClassId() {
 		return classId;
 	}

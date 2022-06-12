@@ -1,5 +1,6 @@
 package com.simplilearn.ph2.controllers;
 
+//import required packages
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -30,13 +31,21 @@ public class ClassServlet extends HttpServlet {
 			
 			String liveClassId = request.getParameter("liveClassId");
 			String liveClassName = request.getParameter("liveClassName");
+			
+			//generate new entity for live training class
 			TrainingClass event = new TrainingClass(liveClassId, liveClassName);
 			ClassService liveClassService = new ClassServiceImpl();
+			
+			//add new training live class
 			boolean isLiveClassAdded = liveClassService.addClass(event);
+			
+			//Go to next screen, the main menu for the administrator
 			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 			dispatcher.forward(request, response);
 
 		} else if (action.equals("Back")) {
+			
+			// if user would like to go one screen back
 			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 			dispatcher.forward(request, response);
 		}

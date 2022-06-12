@@ -1,5 +1,6 @@
 package com.simplilearn.ph2.dao;
 
+//import required packages
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,27 +16,33 @@ public class StudentDaoImpl implements StudentDao{
 	private Connection connection;
 
 	public StudentDaoImpl() {
+		
+		//Establish connection to database
 		connection = new ConnectionManagerImpl().getConnection();
 	}
 
 	@Override
 	public boolean addStudent(Student student) {
 		boolean isStudentAdded = false;
+		
+		//Define query for inserting data into database
 		String query = "insert into student values(?,?,?)";
 		
 		try {
+			//Using prepared statement for injecting query parameter 
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, student.getStudentId());
 			preparedStatement.setString(2, student.getStudentFirstName());
 			preparedStatement.setString(3, student.getStudentLastName());
 			int val = preparedStatement.executeUpdate();
 			if(val > 0)
+				//Addition of above data by executing above query has been successful
 				isStudentAdded = true;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-				
+		// It will be returned if addition of above data has been successful	
 		return isStudentAdded;
 	}
 

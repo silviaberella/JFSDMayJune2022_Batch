@@ -14,10 +14,12 @@
 	 <br>
 	 <center> The masterlist in below table shows the teachers who are currently already available in the Learning Management System.</center>
  </p>
+  	<!-- Get data from session object -->
   <%
 	Set<Teacher> allTeacher = (Set<Teacher>)session.getAttribute("allTeacher");
 	%>
 	<center>
+	<!-- Display above data in table below with headers -->
 	<table border="1" style="background-color:rgb(104, 227, 225);">
 	<tr>
 		<th>Teacher ID</th>
@@ -41,6 +43,7 @@
 	<br>
 	</table>
  	<center> <h3 style="background-color:rgb(210, 68, 119);"> For adding a teacher please enter the Id, the first name and the last name of this teacher.</h3> </center>
+ 		<!-- Definition of form for adding teacher -->
 	<form action="TeacherServlet" method="post">
 		Id: <input type="text" name="teacherId"/>
 		First name: <input type="text" name="teacherFirstName"/>

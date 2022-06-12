@@ -14,9 +14,11 @@
 	 <br>
 	 <center> The masterlist in below table shows the subjects which are currently already available in the Learning Management System.</center>
  </p>
+  	<!-- Get data from session object -->
   <%
 	Set<Subject> allSubjects = (Set<Subject>)session.getAttribute("allSubjects");
 	%>
+	<!-- Display above data in table below with headers -->
 	<center>
 	<table border="1" style="background-color:rgb(104, 227, 225);">
 	<tr>
@@ -39,6 +41,7 @@
 	</table>
 	</br>
 	<center> <h3 style="background-color:rgb(210, 68, 119);"> For adding a subject please enter the Id and the name of this subject.</h3> </center>
+		<!-- Definition of form for adding student -->
 	<form action="SubjectServlet" method="post">
 		Id: <input type="text" name="subjectId"/>
 		Subject: <input type="text" name="subjectName"/><br/><br/>

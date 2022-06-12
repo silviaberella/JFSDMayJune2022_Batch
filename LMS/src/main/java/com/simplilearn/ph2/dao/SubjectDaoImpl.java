@@ -1,5 +1,6 @@
 package com.simplilearn.ph2.dao;
 
+//import required packages
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,26 +17,32 @@ public class SubjectDaoImpl implements SubjectDao{
 	private Connection connection;
 
 	public SubjectDaoImpl() {
+		
+		//Establish connection to database
 		connection = new ConnectionManagerImpl().getConnection();
 	}
 
 	@Override
 	public boolean addSubject(Subject subject) {
 		boolean isSubjectAdded = false;
+		
+		//Define query for inserting data into database
 		String query = "insert into subject values(?,?)";
 		
 		try {
+			//Using prepared statement for injecting query parameter 
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, subject.getSubjectId());
 			preparedStatement.setString(2, subject.getSubjectName());
 			int val = preparedStatement.executeUpdate();
 			if(val > 0)
+				//Addition of above data by executing above query has been successful
 				isSubjectAdded = true;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+		// It will be returned if addition of above data has been successful
 		return isSubjectAdded;
 	}
 

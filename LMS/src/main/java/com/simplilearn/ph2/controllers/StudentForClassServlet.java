@@ -1,5 +1,6 @@
 package com.simplilearn.ph2.controllers;
 
+//import required packages
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -9,11 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.simplilearn.ph2.dto.StudentToClass;
-import com.simplilearn.ph2.dto.TeacherToClass;
 import com.simplilearn.ph2.service.StudentForClassService;
 import com.simplilearn.ph2.service.StudentForClassServiceImpl;
-import com.simplilearn.ph2.service.TeacherForClassService;
-import com.simplilearn.ph2.service.TeacherForClassServiceImpl;
 
 
 public class StudentForClassServlet extends HttpServlet {
@@ -32,14 +30,21 @@ public class StudentForClassServlet extends HttpServlet {
 
 			String studentId = request.getParameter("studentId");
 			String liveClassId = request.getParameter("liveClassId");
+			
+			//generate new entity for live classs with its student
 			StudentToClass studentToClass = new StudentToClass(liveClassId, studentId);
 			StudentForClassService studentForClassService = new StudentForClassServiceImpl();
+			
+			//add live class with its assigned student
 			boolean isStudentToClassAdded = studentForClassService.addStudentToClass(studentToClass);
 
+			//Go to next screen, the main menu for the administrator
 			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 			dispatcher.forward(request, response);
 			
 		}else if (action.equals("Back")) {
+			
+			// if user would like to go one screen back
 			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 			dispatcher.forward(request, response);
 		}

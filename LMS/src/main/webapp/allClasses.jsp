@@ -9,9 +9,11 @@
 <title>Report classes</title>
 </head>
 <body>
+ 	<!-- Get data from session object -->
 	<%
 	Set<TrainingClass> reportClasses = (Set<TrainingClass>)session.getAttribute("allReportClasses");
 	%>
+	<!-- Display above data in table below with headers -->
 	<center>
 	<table border="1" style="background-color:rgb(104, 227, 225);">
 	<center>
@@ -50,6 +52,7 @@
 	%>
 	</table>
 <br>
+	<!-- Definition of form for returning back to menu -->
 <form action="AdminServlet" method="post">
 	<input type="submit" value="Back" name="training"/>
 </form>

@@ -1,5 +1,6 @@
 package com.simplilearn.ph2.dao;
 
+//import required packages
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
-
 import com.simplilearn.ph2.dto.TrainingClass;
 import com.simplilearn.ph2.util.ConnectionManagerImpl;
 
@@ -15,26 +15,34 @@ public class ClassDaoImpl implements ClassDao{
 	private Connection connection;
 
 	public ClassDaoImpl() {
+		
+		//Establish connection to database
 		connection = new ConnectionManagerImpl().getConnection();
 	}
 
 	@Override
 	public boolean addClass(TrainingClass event) {
 		boolean isLiveClassAdded = false;
+		
+		//Define query for inserting data into database
 		String query = "insert into live_class values(?,?)";
 		
 		try {
+			
+			//Using prepared statement for injecting query parameter 
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, event.getLive_class_id());
 			preparedStatement.setString(2, event.getLive_class_name());
 			int val = preparedStatement.executeUpdate();
 			if(val > 0)
+				//Addition of above data by executing above query has been successful
 				isLiveClassAdded = true;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 				
+		// It will be returned if addition of above data has been successful
 		return isLiveClassAdded;
 	}
 
