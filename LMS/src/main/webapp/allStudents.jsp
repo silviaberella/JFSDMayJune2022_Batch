@@ -41,7 +41,7 @@
 	}
 	%>
 	</table>
-	<center> <h3 style="background-color:rgb(210, 68, 119);"> For adding a student please enter the Id, the first name and the last name of this student.</h3> </center>
+		<br>
 		<!-- Definition of form for returning back to menu -->
 		<form action="AdminServlet" method="post">
 		<input type="submit" value="Back" name="training"/>
